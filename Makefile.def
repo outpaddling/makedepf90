@@ -38,10 +38,10 @@ YACC = bison -y
 YFLAGS = 
 
 # Where to install stuff
-prefix = /usr/local
+PREFIX ?= /usr/local
 exec_prefix = ${prefix}
 bindir = ${exec_prefix}/bin
-mandir = ${prefix}/man
+mandir = ${PREFIX}/man
 
 # How to install stuff
 INSTALL=/bin/install -c
