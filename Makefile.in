@@ -25,7 +25,7 @@
 
 PROG = makedepf90@EXEEXT@
 
-VERSION = 2.8.8
+VERSION = 2.8.9
 
 CC = @CC@
 CFLAGS = @CFLAGS@
@@ -36,6 +36,8 @@ LFLAGS = -i -B
 
 YACC = @YACC@
 YFLAGS = 
+
+DESTDIR ?= .
 
 # Where to install stuff
 prefix = @prefix@
@@ -97,15 +99,15 @@ realclean: clean
 	rm -f lexer.c find_dep.[ch] .depend configure tags config.cache config.log config.status 
 
 install: $(PROG)  makedepf90.1
-	$(INSTALL) -d $(bindir)
-	$(INSTALL_PROGRAM) $(PROG) $(bindir)
-	$(INSTALL) -d $(mandir)/man1
-	$(INSTALL_DATA) makedepf90.1 $(mandir)/man1
+	$(INSTALL) -d $(DESTDIR)$(bindir)
+	$(INSTALL_PROGRAM) $(PROG) $(DESTDIR)$(bindir)
+	$(INSTALL) -d $(DESTDIR)$(mandir)/man1
+	$(INSTALL_DATA) makedepf90.1 $(DESTDIR)$(mandir)/man1
 install-strip: $(PROG) makedepf90.1
-	$(INSTALL) -d $(bindir)
-	$(INSTALL_PROGRAM) -s $(PROG) $(bindir)
-	$(INSTALL) -d $(mandir)/man1
-	$(INSTALL_DATA) makedepf90.1 $(mandir)/man1
+	$(INSTALL) -d $(DESTDIR)$(bindir)
+	$(INSTALL_PROGRAM) -s $(PROG) $(DESTDIR)$(bindir)
+	$(INSTALL) -d $(DESTDIR)$(mandir)/man1
+	$(INSTALL_DATA) makedepf90.1 $(DESTDIR)$(mandir)/man1
 
 test: $(PROG)
 	(cd testdir/test1; bash test1.sh)
