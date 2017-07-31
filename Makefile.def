@@ -39,7 +39,7 @@ YFLAGS =
 
 # Where to install stuff
 PREFIX ?= /usr/local
-exec_prefix = ${prefix}
+exec_prefix = ${PREFIX}
 bindir = ${exec_prefix}/bin
 mandir = ${PREFIX}/man
 
@@ -137,7 +137,7 @@ configure: configure.in
 	autoconf
 
 Makefile: Makefile.in configure
-	./configure
+	./configure --prefix=${PREFIX}
 
 Makefile.def: Makefile
 	cp Makefile Makefile.def

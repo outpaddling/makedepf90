@@ -135,7 +135,7 @@ configure: configure.in
 	autoconf
 
 Makefile: Makefile.in configure
-	./configure
+	./configure --prefix=${PREFIX}
 
 Makefile.def: Makefile
 	cp Makefile Makefile.def
