@@ -1,0 +1,11 @@
+FOBJ=./obj/sub1.o ./obj/func1.o ./obj/main.o ./obj/sub3.o ./obj/mod1.o ./obj/data_define.o 
+
+main: $(FOBJ)
+	$(FC) -o $@ $(FFLAGS) $(LDFLAGS) $(FOBJ) $(LIBS)
+
+./obj/sub1.o : ./src/sub1.f90 
+./obj/func1.o : ./src/func1.f90 
+./obj/main.o : ./src/main.f90 ./obj/mod1.o ./obj/data_define.o 
+./obj/sub3.o : ./src/sub3.f90 
+./obj/mod1.o : ./src/mod1.f90 
+./obj/data_define.o : ./src/data_define.f90 
