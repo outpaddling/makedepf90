@@ -47,7 +47,8 @@ static bool skip_to_end[20];
 static int skip_i;
 static bool in_interface = false;
 
-int yyerror(const char *s);
+// This conflicts with bison, which generates void yyerror(const char *)
+// int yyerror(const char *s);
 
 static int modcmp(const void *m1, const void *m2);
 SourceFmt get_format(const char *filename);
